@@ -10,6 +10,19 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', '@typescript-eslint', 'react', 'prettier'],
   rules: {
+    "prettier/prettier": [
+			"error",
+			{
+				"singleQuote": true,
+				"endOfLine": "auto",
+				"tabWidth": 4,
+				"useTabs": false,
+				"printWidth": 100,
+                "trailingComma": "none",
+                "semi": true
+
+			}
+		],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react-refresh/only-export-components': [
       'warn',
