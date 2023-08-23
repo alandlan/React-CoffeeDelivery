@@ -6,9 +6,6 @@ export function Header() {
 			<div>
 				<img src={logoIgnite} alt="logo" />
 			</div>
-			<div>
-				<h1>COFFEE DELIVERY</h1>
-			</div>
 		</div>
 	);
 }

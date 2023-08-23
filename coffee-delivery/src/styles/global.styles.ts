@@ -8,6 +8,22 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
-        background: ${props => props.theme.background};
+        background: ${props => props.theme.colors["base-background"]};
+        color: ${props => props.theme.colors["base-text"]};
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body, input, button, textarea {
+        font-family: ${props => props.theme.fonts.regular};
+        font-weight: 400;
+        font-size: ${props => props.theme.textSizes["text-regular-m"]};
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    a{
+        text-decoration: none;
     }
 `;
