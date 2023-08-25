@@ -1,4 +1,11 @@
-import { Description, Name, ProductContainer, Tags } from './styles';
+import { RegularText, TitleText } from '../../../../components/typography';
+import {
+	CardFooter,
+	Description,
+	Name,
+	ProductContainer,
+	Tags,
+} from './styles';
 
 export function Product() {
 	return (
@@ -10,6 +17,14 @@ export function Product() {
 			</Tags>
 			<Name>Expresso Trandicional</Name>
 			<Description>Feito com grãos selecionados</Description>
+			<CardFooter>
+				<div>
+					<RegularText size="s">R$</RegularText>
+					<TitleText size="m" color="text" as="strong">
+						4,50
+					</TitleText>
+				</div>
+			</CardFooter>
 		</ProductContainer>
 	);
 }
