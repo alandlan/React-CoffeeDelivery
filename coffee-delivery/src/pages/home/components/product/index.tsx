@@ -1,4 +1,4 @@
-import { ProductContainer, Tags } from './styles';
+import { Description, Name, ProductContainer, Tags } from './styles';
 
 export function Product() {
 	return (
@@ -8,6 +8,8 @@ export function Product() {
 				<span>tradicional</span>
 				<span>com leite</span>
 			</Tags>
+			<Name>Expresso Trandicional</Name>
+			<Description>Feito com grãos selecionados</Description>
 		</ProductContainer>
 	);
 }

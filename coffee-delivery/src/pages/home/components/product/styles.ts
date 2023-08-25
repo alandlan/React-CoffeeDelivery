@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { RegularText, TitleText } from "../../../../components/typography";
 
 export const ProductContainer = styled.div`
     width: 100%;
@@ -38,4 +39,19 @@ export const Tags = styled.div`
         border-radius: 999px;
         font-weight: 700;
     }
+`;
+
+export const Name = styled(TitleText).attrs({
+    size: "s",
+    color: "subtitle",
+    weight: "700"
+})`
+    margin-bottom: 0.5rem;
+`;
+
+export const Description = styled(RegularText).attrs({
+    size: "s",
+    color: "label"
+})`
+    margin-bottom: 2rem;
 `;
