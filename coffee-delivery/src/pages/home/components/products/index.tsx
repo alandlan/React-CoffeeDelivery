@@ -1,5 +1,6 @@
 import { TitleText } from '../../../../components/typography';
-import { ProductsContainer } from './styles';
+import { Product } from '../product';
+import { ProductsContainer, ProductsList } from './styles';
 
 export function Products() {
 	return (
@@ -7,6 +8,15 @@ export function Products() {
 			<TitleText size="l" color="subtitle">
 				Nossos Cafés
 			</TitleText>
+			<ProductsList>
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+			</ProductsList>
 		</ProductsContainer>
 	);
 }
