@@ -7,6 +7,10 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
 
     > div {
         width: 100%;
