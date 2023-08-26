@@ -1,4 +1,5 @@
 import { TitleText } from '../../../../components/typography';
+import { products } from '../../../../data/products';
 import { Product } from '../product';
 import { ProductsContainer, ProductsList } from './styles';
 
@@ -9,13 +10,9 @@ export function Products() {
 				Nossos Cafés
 			</TitleText>
 			<ProductsList>
-				<Product />
-				<Product />
-				<Product />
-				<Product />
-				<Product />
-				<Product />
-				<Product />
+				{products.map((product) => (
+					<Product key={product.id} product={product} />
+				))}
 			</ProductsList>
 		</ProductsContainer>
 	);
