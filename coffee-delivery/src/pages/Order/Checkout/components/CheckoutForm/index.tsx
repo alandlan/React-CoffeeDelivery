@@ -1,4 +1,4 @@
-import { MapPinLine } from 'phosphor-react';
+import { MapPinLine, CurrencyDollar } from 'phosphor-react';
 import { TitleText } from '../../../../../components/typography';
 import { SectionTitle } from '../SectionTitle';
 import { CheckoutContainer, FormSectionContainer } from './styles';
@@ -26,6 +26,19 @@ export function CheckoutForm() {
 					}
 				/>
 				<AddressForm />
+			</FormSectionContainer>
+
+			<FormSectionContainer>
+				<SectionTitle
+					title="Pagamento"
+					subtitle="O pagamento sera realizado na entrega"
+					icon={
+						<CurrencyDollar
+							size={22}
+							color={colors['brand-yellow-dark']}
+						/>
+					}
+				/>
 			</FormSectionContainer>
 		</CheckoutContainer>
 	);
