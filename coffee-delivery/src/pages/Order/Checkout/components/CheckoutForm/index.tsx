@@ -4,6 +4,7 @@ import { SectionTitle } from '../SectionTitle';
 import { CheckoutContainer, FormSectionContainer } from './styles';
 import { useTheme } from 'styled-components';
 import { AddressForm } from './AddressForm';
+import { PaymentMethodOptions } from './PaymentMethodOptions';
 
 export function CheckoutForm() {
 	const { colors } = useTheme();
@@ -39,6 +40,7 @@ export function CheckoutForm() {
 						/>
 					}
 				/>
+				<PaymentMethodOptions />
 			</FormSectionContainer>
 		</CheckoutContainer>
 	);
