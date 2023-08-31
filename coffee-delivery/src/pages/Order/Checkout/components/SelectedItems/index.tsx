@@ -1,4 +1,5 @@
 import { TitleText } from '../../../../../components/typography';
+import { ItemCartCard } from '../ItemCartCard';
 import { DetailsContainer, SelectedItemsContainer } from './styles';
 
 export function SelectedItems() {
@@ -9,7 +10,9 @@ export function SelectedItems() {
 			</TitleText>
 
 			<DetailsContainer>
-				<p>Itens</p>
+				<ItemCartCard />
+				<ItemCartCard />
+				<ItemCartCard />
 			</DetailsContainer>
 		</SelectedItemsContainer>
 	);
