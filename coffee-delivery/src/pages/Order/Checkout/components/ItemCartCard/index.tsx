@@ -14,7 +14,7 @@ interface ProductCardProps {
 }
 
 export function ItemCartCard({ product }: ProductCardProps) {
-	const { changeCartItemQuantity } = useCart();
+	const { changeCartItemQuantity, removeCartItem } = useCart();
 
 	function handleIncrease() {
 		changeCartItemQuantity(product.id, 'increase');
@@ -22,6 +22,10 @@ export function ItemCartCard({ product }: ProductCardProps) {
 
 	function handleDecrease() {
 		changeCartItemQuantity(product.id, 'decrease');
+	}
+
+	function handleRemove() {
+		removeCartItem(product.id);
 	}
 
 	const productTotal = product.price * product.quantity;
@@ -45,7 +49,7 @@ export function ItemCartCard({ product }: ProductCardProps) {
 							onIncrease={handleIncrease}
 							onDecrease={handleDecrease}
 						/>
-						<RemoveButton>
+						<RemoveButton onClick={handleRemove}>
 							<Trash size={16} />
 							REMOVER
 						</RemoveButton>
