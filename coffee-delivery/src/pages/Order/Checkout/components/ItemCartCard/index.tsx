@@ -6,8 +6,29 @@ import {
 	ItemCartCardContainer,
 	RemoveButton,
 } from './styles';
+import { CartItem } from '../../../../../contexts/CartContext';
+import { useCart } from '../../../../../hooks/useCart';
 
-export function ItemCartCard() {
+interface ProductCardProps {
+	product: CartItem;
+}
+
+export function ItemCartCard({ product }: ProductCardProps) {
+	const { changeCartItemQuantity } = useCart();
+
+	function handleIncrease() {
+		changeCartItemQuantity(product.id, 'increase');
+	}
+
+	function handleDecrease() {
+		changeCartItemQuantity(product.id, 'decrease');
+	}
+
+	const productTotal = product.price * product.quantity;
+	const formatedPrice = productTotal.toLocaleString('pt-br', {
+		style: 'currency',
+		currency: 'BRL',
+	});
 	return (
 		<ItemCartCardContainer>
 			<div>
@@ -16,11 +37,14 @@ export function ItemCartCard() {
 					alt="Café"
 				/>
 				<div>
-					<RegularText color="subtitle">
-						Expresso Tradicional
-					</RegularText>
+					<RegularText color="subtitle">{product.name}</RegularText>
 					<ActionsContainer>
-						<QuantityInput size="small" />
+						<QuantityInput
+							size="small"
+							quantity={product.quantity}
+							onIncrease={handleIncrease}
+							onDecrease={handleDecrease}
+						/>
 						<RemoveButton>
 							<Trash size={16} />
 							REMOVER
@@ -28,7 +52,7 @@ export function ItemCartCard() {
 					</ActionsContainer>
 				</div>
 			</div>
-			<p>R$ 9,90</p>
+			<p>{formatedPrice}</p>
 		</ItemCartCardContainer>
 	);
 }
