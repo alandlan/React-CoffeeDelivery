@@ -10,6 +10,8 @@ import {
 	Tags,
 } from './styles';
 import { formatMoney } from '../../../../utils/formatmoney';
+import { useCart } from '../../../../hooks/useCart';
+import { useState } from 'react';
 
 export interface Product {
 	id: number;
@@ -25,6 +27,26 @@ interface ProductProps {
 }
 
 export function Product({ product }: ProductProps) {
+	const [quantity, setQuantity] = useState(1);
+
+	function handleIncrease() {
+		setQuantity((state) => state + 1);
+	}
+
+	function handleDecrease() {
+		setQuantity((state) => state - 1);
+	}
+
+	const { addProductToCart } = useCart();
+
+	function handleAddToCart() {
+		const productToAdd = {
+			...product,
+			quantity,
+		};
+		addProductToCart(productToAdd);
+	}
+
 	const formattedPrice = formatMoney(product.price);
 
 	return (
@@ -45,8 +67,12 @@ export function Product({ product }: ProductProps) {
 					</TitleText>
 				</div>
 				<AddCartWrapper>
-					<QuantityInput />
-					<button>
+					<QuantityInput
+						onIncrease={handleIncrease}
+						onDecrease={handleDecrease}
+						quantity={quantity}
+					/>
+					<button onClick={handleAddToCart}>
 						<ShoppingCart size={22} weight="fill" />
 					</button>
 				</AddCartWrapper>
