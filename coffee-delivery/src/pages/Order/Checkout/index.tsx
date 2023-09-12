@@ -6,13 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, FormProvider } from 'react-hook-form';
 
 const confirmOrderSchema = zod.object({
-	cep: zod.string().min(1, 'informe o cep'),
+	cep: zod.string().min(1, 'informe o cep').max(8, 'cep inválido'),
 	street: zod.string().min(1, 'informe a rua'),
 	number: zod.string().min(1, 'informe o número'),
 	complement: zod.string().optional(),
 	neighborhood: zod.string().min(1, 'informe o bairro'),
 	city: zod.string().min(1, 'informe a cidade'),
-	state: zod.string().min(1, 'informe o estado'),
+	state: zod.string().min(1, 'informe o estado').max(2, 'estado inválido'),
 });
 
 export type OrderData = zod.infer<typeof confirmOrderSchema>;

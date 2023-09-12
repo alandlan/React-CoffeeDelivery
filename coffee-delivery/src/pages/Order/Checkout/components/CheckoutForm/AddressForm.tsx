@@ -59,7 +59,6 @@ export function AddressForm() {
 				placeholder="UF"
 				className="state"
 				max={2}
-				type="number"
 				{...register('state')}
 				error={errors.state?.message}
 			/>
