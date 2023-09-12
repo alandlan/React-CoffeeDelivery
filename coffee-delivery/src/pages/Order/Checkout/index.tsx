@@ -6,7 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, FormProvider } from 'react-hook-form';
 
 const confirmOrderSchema = zod.object({
-	cep: zod.string(),
+	cep: zod.string().min(1, 'informe o cep'),
+	street: zod.string().min(1, 'informe a rua'),
+	number: zod.string().min(1, 'informe o número'),
+	complement: zod.string().optional(),
+	neighborhood: zod.string().min(1, 'informe o bairro'),
+	city: zod.string().min(1, 'informe a cidade'),
+	state: zod.string().min(1, 'informe o estado'),
 });
 
 export type OrderData = zod.infer<typeof confirmOrderSchema>;
@@ -25,16 +31,11 @@ export function Checkout() {
 		console.log('Confirmar pedido');
 	}
 
-	function teste() {
-		console.log('teste');
-	}
-
 	return (
 		<FormProvider {...confirmOrderForm}>
 			<CheckoutContainer
 				className="container"
 				onSubmit={handleSubmit(handleConfirmOrder)}
-				// onSubmit={teste}
 			>
 				<CheckoutForm />
 				<SelectedItems />
