@@ -23,7 +23,7 @@ export function QuantityInput({
 				type="number"
 				min="1"
 				max="99"
-				defaultValue="1"
+				// defaultValue="1"
 				value={quantity}
 				readOnly
 			/>

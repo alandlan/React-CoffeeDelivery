@@ -50,7 +50,12 @@ export function ComfirmationSection() {
 				</RegularText>
 			</div>
 
-			<Button text="Confirmar" disabled={cartQuantity <= 0} />
+			<Button
+				id="confirm-order"
+				text="Confirmar"
+				disabled={cartQuantity <= 0}
+				type="submit"
+			/>
 		</ConfirmationSectionContainer>
 	);
 }

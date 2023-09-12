@@ -1,10 +1,17 @@
+import { useFormContext } from 'react-hook-form';
 import { Input } from '../../../../../components/input';
 import { AddressFormContainer } from './styles';
 
 export function AddressForm() {
+	const { register } = useFormContext();
 	return (
 		<AddressFormContainer>
-			<Input placeholder="CEP" className="cep" type="number" />
+			<Input
+				placeholder="CEP"
+				className="cep"
+				type="number"
+				{...register('cep')}
+			/>
 			<Input placeholder="Rua" className="street" />
 			<Input placeholder="Número" className="number" type="number" />
 			<Input placeholder="Complemento" className="complement" />
