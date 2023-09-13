@@ -36,4 +36,16 @@ export const GlobalStyle = createGlobalStyle`
     input[type=number] {
         -moz-appearance: textfield;
     }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: ${props => props.theme.colors["base-button"]};
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: ${props => props.theme.colors["brand-purple"]};
+    }
 `;
