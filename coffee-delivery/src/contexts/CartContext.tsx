@@ -16,6 +16,7 @@ interface CartContextType {
 		type: 'increase' | 'decrease',
 	) => void;
 	removeCartItem: (cartItemId: number) => void;
+	clearCart: () => void;
 }
 
 export const CartContext = createContext<CartContextType>(
@@ -92,6 +93,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 		setCartItems(newCart);
 	}
 
+	function clearCart() {
+		setCartItems([]);
+	}
+
 	useEffect(() => {
 		localStorage.setItem(
 			PRODUCT_ITEM_STORAGE_KEY,
@@ -108,6 +113,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 				addProductToCart,
 				changeCartItemQuantity,
 				removeCartItem,
+				clearCart,
 			}}
 		>
 			{children}
